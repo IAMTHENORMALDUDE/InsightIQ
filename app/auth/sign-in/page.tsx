@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { redirect } from "next/navigation";
 
 export default function LoginForm() {
   return (
@@ -22,7 +23,7 @@ export default function LoginForm() {
           <form
             action={async () => {
               "use server";
-              await signIn("github");
+              await signIn("github", { redirectTo: "/", redirect: true });
             }}
           >
             <div className="grid gap-4">
