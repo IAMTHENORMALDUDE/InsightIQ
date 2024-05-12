@@ -26,6 +26,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { redirect } from "next/navigation";
+import UserMenu from "@/components/user-menu";
 
 export default async function DashboardLayout({
   children,
@@ -154,7 +155,7 @@ export default async function DashboardLayout({
                 </div>
               </form>
             </div>
-            {/* <UserMenu session={session!} /> */}
+            <UserMenu session={session!} />
           </header>
           <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
             {children}
