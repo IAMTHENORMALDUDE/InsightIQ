@@ -11,6 +11,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { CornerDownLeft, Mic, Paperclip } from "lucide-react";
+import { useSession } from "next-auth/react";
 
 function formatCurrentTime(): string {
   const now = new Date();
@@ -20,6 +21,8 @@ function formatCurrentTime(): string {
 }
 
 export default function Page() {
+  const session = useSession();
+
   const { messages, input, handleInputChange, handleSubmit } = useChat();
   return (
     <div className="relative flex h-full min-h-[50vh] flex-col rounded-xl bg-muted/50 p-4 lg:col-span-2 bg-gray-50">
@@ -41,7 +44,7 @@ export default function Page() {
             >
               <div className="flex items-center space-x-2 rtl:space-x-reverse">
                 <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                  {m.role === "user" ? "User" : "InsightIQ"}
+                  {m.role === "user" ? session.data?.user?.name! : "InsightIQ"}
                 </span>
                 <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
                   {formatCurrentTime()}
