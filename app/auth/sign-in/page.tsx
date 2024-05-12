@@ -1,3 +1,4 @@
+import { signIn } from "@/auth";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -18,7 +19,12 @@ export default function LoginForm() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form
+            action={async () => {
+              "use server";
+              await signIn("github");
+            }}
+          >
             <div className="grid gap-4">
               <Button type="submit" className="w-full">
                 Login with GitHub
