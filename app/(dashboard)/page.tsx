@@ -22,9 +22,9 @@ function formatCurrentTime(): string {
 export default function Page() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
   return (
-    <div className="relative flex h-full min-h-[50vh] flex-col rounded-xl bg-muted/50 p-4 lg:col-span-2">
+    <div className="relative flex h-full min-h-[50vh] flex-col rounded-xl bg-muted/50 p-4 lg:col-span-2 bg-gray-50">
       <TooltipProvider>
-        <div className="space-y-6 max-h-[70vh] overflow-auto flex-1 pb-6 flex flex-col">
+        <div className="space-y-6 max-h-[72vh] overflow-auto flex-1 pb-6 flex flex-col">
           {messages.map((m: any) => (
             // <div key={m.id} className="whitespace-pre-wrap">
             //   {m.role === "user" ? "User: " : "AI: "}
